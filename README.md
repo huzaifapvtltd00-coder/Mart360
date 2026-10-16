@@ -6,6 +6,10 @@ Mart360 is a deployable store operations app for Indian grocery and superstores.
 
 Open `index.html` in a modern browser and choose **Try the demo**. Demo workspaces are saved on that browser only.
 
+## Install Mart360 like an app
+
+Deploy the folder to an HTTPS site first. Open that site in Chrome or Edge and choose **Install Mart360** on the sign-in screen. The app shell and brand assets are cached so the app can open while offline; owner sign-in and cloud saving still need an internet connection. You can also use the browser menu's install option.
+
 ## Enable real accounts and cloud sync
 
 1. Create or select a Supabase project in the region you want to use for store data.
@@ -21,9 +25,11 @@ Each authenticated owner can access only workspaces they own. Row Level Security
 - Overview: inventory value, low-stock alerts, recent sales, and sales mix.
 - Inventory: add/edit products, stock counts, reorder point, cost, selling price, GST, category, and barcode/SKU lookup.
 - Sell: scan with a USB/Bluetooth keyboard barcode scanner, search products, adjust cart quantities, take UPI/cash/card/credit payment, and print a receipt.
+- Sales & bills: search saved sales by bill number, date, payment type or product, then reprint receipts.
 - Purchases: supplier list and purchase orders; receive orders into stock.
 - Owner books: record expenses and salary payments.
 - Team: keep staff and salary records for the owner.
 - Reports: sales and stock summaries.
+- Store settings: save your shop name, address, phone, optional GSTIN, and receipt message. The details are stored with the workspace and appear on printed bills.
 
 This package is a first deployable version, not a certified accounting, GST filing, payroll compliance, or payment-processing service. Review tax calculations and operational controls before using it for statutory books.
