@@ -18,7 +18,7 @@ Deploy the folder to an HTTPS site first. Open that site in Chrome or Edge and c
 4. Deploy the folder as a static site. Set the deployed URL as the Supabase Auth Site URL and add it to the allowed redirect URLs.
 5. Sign up with an owner email, create a workspace, and enter real store records.
 
-Each authenticated owner can access only workspaces they own. Row Level Security protects the entire workspace row, including payroll and ledger data. One row stores one shop's complete state as JSON so a bill and its stock deduction save together. A revision counter detects stale saves from another tab/device instead of silently overwriting newer data. Demo mode does not sync between devices. Use the in-app **Backup** button to download a copy, and **Restore** to load it later.
+Each authenticated owner can access only workspaces they own. Row Level Security protects the entire workspace row, including payroll and ledger data. One row stores one shop's complete state as JSON so a bill and its stock deduction save together. Signed-in devices subscribe to Supabase Realtime and refresh when another device saves the same workspace. A revision counter detects simultaneous edits instead of silently overwriting newer data. If you already ran the previous SQL files, run the updated `schema-upgrade.sql` once to enable Realtime for the workspace table. Demo mode does not sync between devices. Use the in-app **Backup** button to download a copy, and **Restore** to load it later.
 
 ## Owner backups and data controls
 
