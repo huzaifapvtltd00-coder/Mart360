@@ -20,6 +20,20 @@ Deploy the folder to an HTTPS site first. Open that site in Chrome or Edge and c
 
 Each authenticated owner can access only workspaces they own. Row Level Security protects the entire workspace row, including payroll and ledger data. One row stores one shop's complete state as JSON so a bill and its stock deduction save together. A revision counter detects stale saves from another tab/device instead of silently overwriting newer data. Demo mode does not sync between devices. Use the in-app **Backup** button to download a copy, and **Restore** to load it later.
 
+## Owner backups and data controls
+
+- **Download all-store backup** saves every store in one JSON file. **Restore backup** adds new copies and does not overwrite existing stores. You can use the workspace picker to restore after signing into a new account.
+- **Clear all store data** downloads a backup first, then requires typing `CLEAR`. It empties products, bills, suppliers, purchase orders, owner books, team/payroll, and receipt details while keeping the current store and owner login.
+- **Delete this store** downloads a backup first and requires the exact store name. It removes only the selected workspace. The owner login and other stores remain.
+- **Cancel** on a bill keeps the bill marked as cancelled, restores the sold quantities where those products still exist, and records a sale reversal. Cancelled bills are excluded from sales totals and cannot be reprinted.
+- **Delete owner account** requires an all-store backup and typing the signed-in email. It permanently removes that Auth user and, through the existing `owner_id ... on delete cascade` relationship, every workspace they own.
+
+### Turn on store and account deletion
+
+Both delete actions use the included server-side function so the Supabase service-role key never appears in `config.js` or the website. In the Supabase Dashboard, open **Edge Functions → Deploy a new function → Via Editor**, name it `owner-data-actions`, replace the template with `supabase/functions/owner-data-actions/index.ts`, and deploy with JWT verification enabled. The function verifies the signed-in user; store deletion also filters by that user's owner ID. Account deletion removes only the signed-in user and their owned workspaces. Supabase's Auth admin delete API requires a server-side service-role key: [Supabase deleteUser reference](https://supabase.com/docs/reference/javascript/auth-admin-deleteuser).
+
+No new table or SQL change is needed for these controls.
+
 ## Store workflows
 
 - Overview: inventory value, low-stock alerts, recent sales, and sales mix.
@@ -31,5 +45,6 @@ Each authenticated owner can access only workspaces they own. Row Level Security
 - Team: keep staff and salary records for the owner.
 - Reports: sales and stock summaries.
 - Store settings: save your shop name, address, phone, optional GSTIN, and receipt message. The details are stored with the workspace and appear on printed bills.
+- Store settings: download or restore backups, clear a store, delete a store, or securely delete an owner account.
 
 This package is a first deployable version, not a certified accounting, GST filing, payroll compliance, or payment-processing service. Review tax calculations and operational controls before using it for statutory books.
