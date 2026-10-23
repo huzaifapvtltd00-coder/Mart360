@@ -4,7 +4,7 @@ Mart360 is a deployable store operations app for Indian grocery and superstores.
 
 ## Run the local demo
 
-Open `index.html` in a modern browser and choose **Try the demo**. It starts with sample store data. Changes remain in memory only and reset when the visitor reloads or exits; demo records are not saved to the browser or Supabase, and app download/export actions are disabled in demo mode. A 72-hour timer starts at first use, then clears any legacy demo workspace data and requires an owner account to continue. This browser-only limit is best-effort: clearing site data or using another browser/device can start a fresh timer. A non-bypassable trial needs verified identity and server-side expiry.
+Open `index.html` in a modern browser and choose **Try the demo**. It opens a populated sample store with recent bills, sales charts, suppliers, purchase orders, expenses, and staff. Demo edits save only in that browser’s local storage so they survive reloads and exits; they are never sent to Supabase. Use **Reset demo to sample data** to undo demo edits and restore the original sample store. Downloads, backups, and restore are disabled in demo mode. The 72-hour timer starts on first use and then erases the browser’s demo workspaces and requires an invited owner account to continue. This browser-only limit is best-effort: clearing site data or using another browser/device can start a fresh timer. A non-bypassable trial needs verified identity and server-side expiry.
 
 ## Install Mart360 like an app
 
