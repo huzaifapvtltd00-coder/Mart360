@@ -6,6 +6,10 @@ Mart360 is a deployable store operations app for Indian grocery and superstores.
 
 Open `index.html` in a modern browser and choose **Try the demo**. It opens a populated sample store with recent bills, sales charts, suppliers, purchase orders, expenses, and staff. Demo edits save only in that browser’s local storage so they survive reloads and exits; they are never sent to Supabase. Use **Reset demo to sample data** to undo demo edits and restore the original sample store. Downloads, backups, and restore are disabled in demo mode. The 72-hour timer starts on first use and then erases the browser’s demo workspaces and requires an invited owner account to continue. This browser-only limit is best-effort: clearing site data or using another browser/device can start a fresh timer. A non-bypassable trial needs verified identity and server-side expiry.
 
+## Mobile and desktop layouts
+
+Mart360 adapts to phone, tablet, and desktop screens. On phones it provides a five-button quick-navigation dock, large checkout and form controls, a sticky review-and-pay shortcut while the cart has items, 68–70px payment and sale controls, spacious add-to-bill product cards, safe-area spacing, and thumb-friendly navigation. On wider screens it uses the full workspace, persistent sidebar, and side-by-side checkout panels.
+
 ## Install Mart360 like an app
 
 Deploy the folder to an HTTPS site first. Open that site in Chrome or Edge and choose **Install Mart360** on the sign-in screen. The app shell and brand assets are cached so the app can open while offline; owner sign-in and cloud saving still need an internet connection. You can also use the browser menu's install option.
@@ -38,7 +42,7 @@ No new table or SQL change is needed for these controls.
 
 - Overview: inventory value, low-stock alerts, recent sales, and sales mix.
 - Inventory: add/edit products, stock counts, reorder point, cost, selling price, GST, category, and barcode/SKU lookup.
-- Sell: scan with a USB/Bluetooth keyboard barcode scanner, search products, adjust cart quantities, take UPI/cash/card/credit payment, and print a receipt.
+- Sell: scan with a USB/Bluetooth keyboard barcode scanner or open Camera scan to use the mobile back camera. Camera access needs the HTTPS site and browser permission. Mart360 confirms two reads, validates retail check digits when available, and adds only one exact barcode match in the active store; uncertain, missing, or duplicate matches are not added. Camera focus and barcode condition vary by device; manual search remains available. On browsers without native barcode detection, the camera reader is loaded from jsDelivr, so first-time camera scanning needs internet. Search products, adjust cart quantities, take UPI/cash/card/credit payment, and print a receipt.
 - Sales & bills: search saved sales by bill number, date, payment type or product, then reprint receipts.
 - Purchases: supplier list and purchase orders; receive orders into stock.
 - Owner books: record expenses and salary payments.

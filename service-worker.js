@@ -1,8 +1,9 @@
-const CACHE_NAME = 'mart360-shell-v10';
+const CACHE_NAME = 'mart360-shell-v13';
 const APP_SHELL = [
   './',
   './index.html',
   './config.js',
+  './scanner.js',
   './mart360-icon.svg',
   './mart360-icon-180.png',
   './mart360-icon-192.png',
